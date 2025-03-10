@@ -11,13 +11,13 @@ class LinkedList:
 class Solution:
     # Function to count nodes of a linked list.
     def getCount(self, head):
+        # code here
         count=0
         current=head
-        while current:
-            count+=1
+        while(current):
             current=current.next
+            count=count+1
         return count
-        # code here
 
 
 #{ 
@@ -47,5 +47,6 @@ if __name__ == "__main__":
             tail = tail.next
         ob = Solution()
         print(ob.getCount(head))
+        print("~")
 
 # } Driver Code Ends
