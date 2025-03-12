@@ -75,8 +75,6 @@ public class Main {
 
 
 /*
-  Merge two linked lists
-  head pointer input could be NULL as well for empty list
   Node is defined as
     class Node
     {
@@ -87,44 +85,39 @@ public class Main {
 */
 
 class Solution {
-    // Function to merge two sorted linked list.
-    Node sortedMerge(Node list1, Node list2) {
-        // This is a "method-only" submission.
-        // You only need to complete this method
-        
+    Node sortedMerge(Node head1, Node head2) {
+        // code here
         Node dummy=new Node(0);
-        Node tail=dummy;
-        while(list1!=null && list2!=null)
+        Node temp=dummy;
+        Node curr1=head1;
+        Node curr2=head2;
+        while(curr1!=null && curr2!=null)
         {
-            if(list1.data>list2.data)
+            if(curr1.data<=curr2.data)
             {
-                tail.next=list2;
-                list2=list2.next;
-                
+                temp.next=curr1;
+                curr1=curr1.next;
                 
             }
             else
             {
-                tail.next=list1;
-                list1=list1.next;
+                temp.next=curr2;
+                curr2=curr2.next;
+                
             }
-            tail=tail.next;
+            temp=temp.next;
         }
-        if(list1!=null)
+        if(curr1!=null)
         {
-            tail.next=list1;
-            
+            temp.next=curr1;
             
         }
-        else
+        else if(curr2!=null)
         {
-            tail.next=list2;
+            temp.next=curr2;
             
         }
         return dummy.next;
-            
-        
-        
-        
     }
+    
 }
