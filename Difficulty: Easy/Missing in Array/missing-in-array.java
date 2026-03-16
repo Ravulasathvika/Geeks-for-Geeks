@@ -2,15 +2,15 @@ class Solution {
     int missingNum(int arr[]) {
         // code here
         Arrays.sort(arr);
-        int n=arr.length;
-        for(int i=0;i<n;i++)
+        int count=1;
+        for(int num:arr)
         {
-            if(arr[i]!=i+1)
+            if(count!=num)
             {
-                return i+1;
-                
+                return count;
             }
+            count++;
         }
-        return n+1;
+        return count;
     }
 }
