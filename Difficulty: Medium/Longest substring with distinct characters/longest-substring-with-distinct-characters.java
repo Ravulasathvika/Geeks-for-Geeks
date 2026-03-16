@@ -1,8 +1,8 @@
 class Solution {
     public int longestUniqueSubstr(String s) {
         // code here
+        int max_ele=0;
         HashSet<Character> set=new HashSet<>();
-        int max_num=0;
         int left=0;
         for(int right=0;right<s.length();right++)
         {
@@ -12,9 +12,11 @@ class Solution {
                 left++;
             }
             set.add(s.charAt(right));
-            max_num=Math.max(max_num,right-left+1);
+            
+            max_ele=Math.max(max_ele,right-left+1);
         }
-        return max_num;
+        return max_ele;
+        
         
     }
 }
